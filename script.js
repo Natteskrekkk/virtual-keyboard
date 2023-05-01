@@ -41,10 +41,10 @@ const keyData = [
         return () => textareaElement.textContent += symbol;
     }, "Equal"),
     new Key({ ru: "Backspace", ruCaps: "Backspace", ruShift: "Backspace", en: "Backspace", enCaps: "Backspace", enShift: "Backspace" }, "key-special-backspace", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        return () => textareaElement.textContent = textareaElement.textContent.substring(0, textareaElement.textContent.length - 1);
     }, "Backspace"),
     new Key({ ru: "Tab", ruCaps: "Tab", ruShift: "Tab", en: "Tab", enCaps: "Tab", enShift: "Tab" }, "key-special-tab", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        return () => textareaElement.textContent += "\t";
     }, "Tab"),
     new Key({ ru: "й", ruCaps: "Й", ruShift: "Й", en: "q", enCaps: "Q", enShift: "Q" }, "key-default", (symbol) => {
         return () => textareaElement.textContent += symbol;
@@ -86,7 +86,7 @@ const keyData = [
         return () => textareaElement.textContent += symbol;
     }, "Backslash"),
     new Key({ ru: "Del", ruCaps: "Del", ruShift: "Del", en: "Del", enCaps: "Del", enShift: "Del" }, "key-special-del", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "Delete"),
     new Key({ ru: "CapsLock", ruCaps: "CapsLock", ruShift: "CapsLock", en: "CapsLock", enCaps: "CapsLock", enShift: "CapsLock" }, "key-special-caps", (symbol) => {
         return () => textareaElement.textContent += symbol;
@@ -125,10 +125,10 @@ const keyData = [
         return () => textareaElement.textContent += symbol;
     }, "Quote"),
     new Key({ ru: "Enter", ruCaps: "Enter", ruShift: "Enter", en: "Enter", enCaps: "Enter", enShift: "Enter" }, "key-special-enter", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        return () => textareaElement.textContent += "\n";
     }, "Enter"),
     new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, "key-special-lshift", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "ShiftLeft"),
     new Key({ ru: "я", ruCaps: "Я", ruShift: "Я", en: "z", enCaps: "Z", enShift: "Z" }, "key-default", (symbol) => {
         return () => textareaElement.textContent += symbol;
@@ -164,22 +164,22 @@ const keyData = [
         return () => textareaElement.textContent += symbol;
     }, "ArrowUp"),
     new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, "key-special-rshift", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "ShiftRight"),
     new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, "key-special", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "ControlLeft"),
     new Key({ ru: "Win", ruCaps: "Win", ruShift: "Win", en: "Win", enCaps: "Win", enShift: "Win" }, "key-special", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "MetaLeft"),
     new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, "key-special", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "AltLeft"),
     new Key({ ru: " ", ruCaps: " ", ruShift: " ", en: " ", enCaps: " ", enShift: " " }, "key-default-space", (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "Space"),
     new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, "key-special", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "AltRight"),
     new Key({ ru: "←", ruCaps: "←", ruShift: "←", en: "←", enCaps: "←", enShift: "←" }, "key-special", (symbol) => {
         return () => textareaElement.textContent += symbol;
@@ -191,9 +191,32 @@ const keyData = [
         return () => textareaElement.textContent += symbol;
     }, "ArrowRight"),
     new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, "key-special", (symbol) => {
-        return () => textareaElement.textContent += symbol;
+        // return () => textareaElement.textContent += symbol;
     }, "ControlRight")
 ]
+
+
+// - Language
+function setDefaultLocalStorage(param) {
+    if (!localStorage.getItem("keyboard-lang")) {
+        localStorage.setItem("keyboard-lang", param);
+    }
+}
+setDefaultLocalStorage("ru");
+
+function changeLocalStorage() {
+    if (localStorage.getItem("keyboard-lang") === "ru") {
+        localStorage.setItem("keyboard-lang", "en");
+    } else {
+        localStorage.setItem("keyboard-lang", "ru");
+    }
+}
+
+const currentLang = function getLocalStorage() {
+    return localStorage.getItem("keyboard-lang");
+}
+//
+
 
 
 
@@ -266,90 +289,109 @@ textareaElement.setAttribute("placeholder", "Write someting here...");
 //
 
 // -- main keyboard
-for (let i = 0; i < keyData.length; i++) {
-    renderKey(keyData[i].style);
-}
-
-function renderKey(style) { // add key according to key style
-    if (style == "key-default") {
-        keyboardWrapper.appendChild(keyDefault.cloneNode(true));
-    } else if (style == "key-special") {
-        keyboardWrapper.appendChild(keySpecial.cloneNode(true));
-    } else if (style == "key-default-space") {
-        keyboardWrapper.appendChild(keyDefaultSpace.cloneNode(true));
-    } else if (style == "key-special-backspace") {
-        keyboardWrapper.appendChild(keySpecialBackspace.cloneNode(true));
-    } else if (style == "key-special-tab") {
-        keyboardWrapper.appendChild(keySpecialTab.cloneNode(true));
-    } else if (style == "key-special-del") {
-        keyboardWrapper.appendChild(keySpecialDel.cloneNode(true));
-    } else if (style == "key-special-caps") {
-        keyboardWrapper.appendChild(keySpecialCaps.cloneNode(true));
-    } else if (style == "key-special-enter") {
-        keyboardWrapper.appendChild(keySpecialEnter.cloneNode(true));
-    } else if (style == "key-special-lshift") {
-        keyboardWrapper.appendChild(keySpecialLShift.cloneNode(true));
-    } else if (style == "key-special-rshift") {
-        keyboardWrapper.appendChild(keySpecialRShift.cloneNode(true));
+function getKeyStyle(param) { // add key according to key style
+    let style;
+    if (param == "key-default") {
+        style = keyDefault;
+    } else if (param == "key-special") {
+        style = keySpecial;
+    } else if (param == "key-default-space") {
+        style = keyDefaultSpace;
+    } else if (param == "key-special-backspace") {
+        style = keySpecialBackspace;
+    } else if (param == "key-special-tab") {
+        style = keySpecialTab;
+    } else if (param == "key-special-del") {
+        style = keySpecialDel;
+    } else if (param == "key-special-caps") {
+        style = keySpecialCaps;
+    } else if (param == "key-special-enter") {
+        style = keySpecialEnter;
+    } else if (param == "key-special-lshift") {
+        style = keySpecialLShift;
+    } else if (param == "key-special-rshift") {
+        style = keySpecialRShift;
     };
+    return style;
 }
 
-function setDefaultLocalStorage(param) {
-    if (!localStorage.getItem("keyboard-lang")) {
-        localStorage.setItem("keyboard-lang", param);
-    }
-}
-setDefaultLocalStorage("ru");
-
-function updateLocalStorage() {
-    if (localStorage.getItem("keyboard-lang") === "ru") {
-        localStorage.setItem("keyboard-lang", "en");
-    } else {
-        localStorage.setItem("keyboard-lang", "ru");
-    }
-}
-
-const currentLang = function getLocalStorage() {
-    return localStorage.getItem("keyboard-lang");
-}
-
-function addKeyValue(lang) {
-    const allKeys = document.querySelectorAll(".key-default");
-
-    for (let i = 0; i < allKeys.length; i++) {
-
+function renderKey(lang) {
+    keyboardWrapper.innerHTML = '';
+    for (let i = 0; i < keyData.length; i++) {
         const element = keyData[i];
+        const keyButton = keyboardWrapper.appendChild((getKeyStyle(element.style)).cloneNode(true));
         const symbol = element.symbol[lang];
 
-        allKeys[i].textContent = symbol;
+        keyButton.textContent = symbol;
 
-        allKeys[i].onclick = element.actionProvider(symbol);
+        keyButton.onclick = element.actionProvider(symbol);
 
         window.addEventListener("keydown", (e) => {
             e.preventDefault();
             if (e.code === element.keyEvent) {
+                keyButton.classList.add("key-active") // add style to key while press it
                 element.actionProvider(symbol)();
-                allKeys[i].classList.toggle("key-active") // add style to key while press it
             }
         })
         window.addEventListener("keyup", (e) => {
             e.preventDefault();
             if (e.code === element.keyEvent) {
-                allKeys[i].classList.toggle("key-active") // delete style to key while press it
+                keyButton.classList.remove("key-active") // delete style to key while press it
 
             }
         })
 
     }
 }
-addKeyValue(currentLang());
-
-
+renderKey(currentLang());
 //
 
 // -- footer
-footerParagraph.innerHTML = "OS: Windows<br>Eng/ru:  left ctrl + left alt";
+footerParagraph.innerHTML = "OS: Windows<br>Eng/Ru: ctrl + alt";
 //
+
+
+// -- change language
+window.addEventListener("keydown", (e) => {
+    e.preventDefault();
+    if (e.ctrlKey && e.altKey) {
+        changeLocalStorage();
+        keyButton.classList.add("key-active")
+        renderKey(currentLang());
+    }
+})
+
+window.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    if (e.ctrlKey && e.altKey) {
+        keyButton.classList.remove("key-active")
+    }
+})
+//
+
+// -- change language Shift
+window.addEventListener("keydown", (e) => {
+    // e.preventDefault();
+    if (e.shiftKey) {
+        let shiftLang;
+        if (currentLang() == "ru") {
+            shiftLang = "ruShift";
+        } else if (currentLang() == "en") {
+            shiftLang = "enShift";
+        }
+        // keyButton.classList.add("key-active")
+        renderKey(shiftLang);
+    }
+})
+
+window.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    // keyButton.classList.remove("key-active")
+    renderKey(currentLang());
+})
+//
+
+
 
 
 
