@@ -1,902 +1,201 @@
-let currentLangState = "rus";
-let keyData = [
-    {
-        rus: "ё",
-        rusCaps: "Ё",
-        rusShift: "Ё",
-        eng: "`",
-        engCaps: "`",
-        engShift: "~",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Backquote",
-    },
-    {
-        rus: "1",
-        rusCaps: "1",
-        rusShift: "!",
-        eng: "1",
-        engCaps: "1",
-        engShift: "!",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit1",
-    },
-    {
-        rus: "2",
-        rusCaps: "2",
-        rusShift: '"',
-        eng: "2",
-        engCaps: "2",
-        engShift: "@",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit2",
-    },
-    {
-        rus: "3",
-        rusCaps: "3",
-        rusShift: "№",
-        eng: "3",
-        engCaps: "3",
-        engShift: "#",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit3",
-    },
-    {
-        rus: "4",
-        rusCaps: "4",
-        rusShift: ";",
-        eng: "4",
-        engCaps: "4",
-        engShift: "$",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit4",
-    },
-    {
-        rus: "5",
-        rusCaps: "5",
-        rusShift: "%",
-        eng: "5",
-        engCaps: "5",
-        engShift: "%",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit5",
-    },
-    {
-        rus: "6",
-        rusCaps: "6",
-        rusShift: ":",
-        eng: "6",
-        engCaps: "6",
-        engShift: "^",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit6",
-    },
-    {
-        rus: "7",
-        rusCaps: "7",
-        rusShift: "?",
-        eng: "7",
-        engCaps: "7",
-        engShift: "&",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit7",
-    },
-    {
-        rus: "8",
-        rusCaps: "8",
-        rusShift: "*",
-        eng: "8",
-        engCaps: "8",
-        engShift: "*",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit8",
-    },
-    {
-        rus: "9",
-        rusCaps: "9",
-        rusShift: "(",
-        eng: "9",
-        engCaps: "9",
-        engShift: "(",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit9",
-    },
-    {
-        rus: "0",
-        rusCaps: "0",
-        rusShift: ")",
-        eng: "0",
-        engCaps: "0",
-        engShift: ")",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Digit0",
-    },
-    {
-        rus: "-",
-        rusCaps: "-",
-        rusShift: "_",
-        eng: "-",
-        engCaps: "-",
-        engShift: "_",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Minus",
-    },
-    {
-        rus: "=",
-        rusCaps: "=",
-        rusShift: "+",
-        eng: "=",
-        engCaps: "=",
-        engShift: "+",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Equal",
-    },
-    {
-        rus: "Backspace",
-        rusCaps: "Backspace",
-        rusShift: "Backspace",
-        eng: "Backspace",
-        engCaps: "Backspace",
-        engShift: "Backspace",
-        style: "key-special-backspace",
-        action() {
-
-
-        },
-        keyEvent: "Backspace",
-    },
-    {
-        rus: "Tab",
-        rusCaps: "Tab",
-        rusShift: "Tab",
-        eng: "Tab",
-        engCaps: "Tab",
-        engShift: "Tab",
-        style: "key-special-tab",
-        action() {
-
-
-        },
-        keyEvent: "Tab",
-    },
-    {
-        rus: "й",
-        rusCaps: "Й",
-        rusShift: "Й",
-        eng: "q",
-        engCaps: "Q",
-        engShift: "Q",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyQ",
-    },
-    {
-        rus: "ц",
-        rusCaps: "Ц",
-        rusShift: "Ц",
-        eng: "w",
-        engCaps: "W",
-        engShift: "W",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyW",
-    },
-    {
-        rus: "у",
-        rusCaps: "У",
-        rusShift: "У",
-        eng: "e",
-        engCaps: "E",
-        engShift: "E",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyE",
-    },
-    {
-        rus: "к",
-        rusCaps: "К",
-        rusShift: "К",
-        eng: "r",
-        engCaps: "R",
-        engShift: "R",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyR",
-    },
-    {
-        rus: "е",
-        rusCaps: "Е",
-        rusShift: "Е",
-        eng: "t",
-        engCaps: "T",
-        engShift: "T",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyT",
-    },
-    {
-        rus: "н",
-        rusCaps: "Н",
-        rusShift: "Н",
-        eng: "y",
-        engCaps: "Y",
-        engShift: "Y",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyY",
-    },
-    {
-        rus: "г",
-        rusCaps: "Г",
-        rusShift: "Г",
-        eng: "u",
-        engCaps: "U",
-        engShift: "U",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyU",
-    },
-    {
-        rus: "ш",
-        rusCaps: "Ш",
-        rusShift: "Ш",
-        eng: "i",
-        engCaps: "I",
-        engShift: "I",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyI",
-    },
-    {
-        rus: "щ",
-        rusCaps: "Щ",
-        rusShift: "Щ",
-        eng: "o",
-        engCaps: "O",
-        engShift: "O",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyO",
-    },
-    {
-        rus: "з",
-        rusCaps: "З",
-        rusShift: "З",
-        eng: "p",
-        engCaps: "P",
-        engShift: "P",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyP",
-    },
-    {
-        rus: "х",
-        rusCaps: "Х",
-        rusShift: "Х",
-        eng: "[",
-        engCaps: "[",
-        engShift: "{",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "BracketLeft",
-    },
-    {
-        rus: "ъ",
-        rusCaps: "Ъ",
-        rusShift: "Ъ",
-        eng: "]",
-        engCaps: "]",
-        engShift: "}",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "BracketRight",
-    },
-    {
-        rus: "\\",
-        rusCaps: "\\",
-        rusShift: "/",
-        eng: "\\",
-        engCaps: "\\",
-        engShift: "|",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Backslash",
-    },
-    {
-        rus: "Del",
-        rusCaps: "Del",
-        rusShift: "Del",
-        eng: "Del",
-        engCaps: "Del",
-        engShift: "Del",
-        style: "key-special-del",
-        action() {
-
-
-        },
-        keyEvent: "Delete",
-    },
-    {
-        rus: "CapsLock",
-        rusCaps: "CapsLock",
-        rusShift: "CapsLock",
-        eng: "CapsLock",
-        engCaps: "CapsLock",
-        engShift: "CapsLock",
-        style: "key-special-caps",
-        action() {
-
-
-        },
-        keyEvent: "CapsLock",
-    },
-    {
-        rus: "ф",
-        rusCaps: "Ф",
-        rusShift: "Ф",
-        eng: "a",
-        engCaps: "A",
-        engShift: "A",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyA",
-    },
-    {
-        rus: "ы",
-        rusCaps: "Ы",
-        rusShift: "Ы",
-        eng: "s",
-        engCaps: "S",
-        engShift: "S",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyS",
-    },
-    {
-        rus: "в",
-        rusCaps: "В",
-        rusShift: "В",
-        eng: "d",
-        engCaps: "D",
-        engShift: "D",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyD",
-    },
-    {
-        rus: "а",
-        rusCaps: "А",
-        rusShift: "А",
-        eng: "f",
-        engCaps: "F",
-        engShift: "F",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyF",
-    },
-    {
-        rus: "п",
-        rusCaps: "П",
-        rusShift: "П",
-        eng: "g",
-        engCaps: "G",
-        engShift: "G",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyG",
-    },
-    {
-        rus: "р",
-        rusCaps: "Р",
-        rusShift: "Р",
-        eng: "h",
-        engCaps: "H",
-        engShift: "H",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyH",
-    },
-    {
-        rus: "о",
-        rusCaps: "О",
-        rusShift: "О",
-        eng: "j",
-        engCaps: "J",
-        engShift: "J",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyJ",
-    },
-    {
-        rus: "л",
-        rusCaps: "Л",
-        rusShift: "Л",
-        eng: "k",
-        engCaps: "K",
-        engShift: "K",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyK",
-    },
-    {
-        rus: "д",
-        rusCaps: "Д",
-        rusShift: "Д",
-        eng: "l",
-        engCaps: "L",
-        engShift: "L",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyL",
-    },
-    {
-        rus: "ж",
-        rusCaps: "Ж",
-        rusShift: "Ж",
-        eng: ";",
-        engCaps: ";",
-        engShift: ":",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Semicolon",
-    },
-    {
-        rus: "э",
-        rusCaps: "Э",
-        rusShift: "Э",
-        eng: "'",
-        engCaps: "'",
-        engShift: '"',
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Quote",
-    },
-    {
-        rus: "Enter",
-        rusCaps: "Enter",
-        rusShift: "Enter",
-        eng: "Enter",
-        engCaps: "Enter",
-        engShift: "Enter",
-        style: "key-special-enter",
-        action() {
-
-
-        },
-        keyEvent: "Enter",
-    },
-    {
-        rus: "Shift",
-        rusCaps: "Shift",
-        rusShift: "Shift",
-        eng: "Shift",
-        engCaps: "Shift",
-        engShift: "Shift",
-        style: "key-special-lshift",
-        action() {
-
-
-        },
-        keyEvent: "ShiftLeft",
-    },
-    {
-        rus: "я",
-        rusCaps: "Я",
-        rusShift: "Я",
-        eng: "z",
-        engCaps: "Z",
-        engShift: "Z",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyZ",
-    },
-    {
-        rus: "ч",
-        rusCaps: "Ч",
-        rusShift: "Ч",
-        eng: "x",
-        engCaps: "X",
-        engShift: "X",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyX",
-    },
-    {
-        rus: "с",
-        rusCaps: "С",
-        rusShift: "С",
-        eng: "c",
-        engCaps: "C",
-        engShift: "C",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyC",
-    },
-    {
-        rus: "м",
-        rusCaps: "м",
-        rusShift: "м",
-        eng: "v",
-        engCaps: "V",
-        engShift: "V",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyV",
-    },
-    {
-        rus: "и",
-        rusCaps: "И",
-        rusShift: "И",
-        eng: "b",
-        engCaps: "B",
-        engShift: "B",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyB",
-    },
-    {
-        rus: "т",
-        rusCaps: "Т",
-        rusShift: "Т",
-        eng: "n",
-        engCaps: "N",
-        engShift: "N",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyN",
-    },
-    {
-        rus: "ь",
-        rusCaps: "Ь",
-        rusShift: "Ь",
-        eng: "m",
-        engCaps: "M",
-        engShift: "M",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "KeyM",
-    },
-    {
-        rus: "б",
-        rusCaps: "Б",
-        rusShift: "Б",
-        eng: ",",
-        engCaps: ",",
-        engShift: "<",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Comma",
-    },
-    {
-        rus: "ю",
-        rusCaps: "Ю",
-        rusShift: "Ю",
-        eng: ".",
-        engCaps: ".",
-        engShift: ">",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Period",
-    },
-    {
-        rus: ".",
-        rusCaps: ".",
-        rusShift: ",",
-        eng: "/",
-        engCaps: "/",
-        engShift: "?",
-        style: "key-default",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Slash",
-    },
-    {
-        rus: "↑",
-        rusCaps: "↑",
-        rusShift: "↑",
-        eng: "↑",
-        engCaps: "↑",
-        engShift: "↑",
-        style: "key-special",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "ArrowUp",
-    },
-    {
-        rus: "Shift",
-        rusCaps: "Shift",
-        rusShift: "Shift",
-        eng: "Shift",
-        engCaps: "Shift",
-        engShift: "Shift",
-        style: "key-special-rshift",
-        action() {
-
-
-        },
-        keyEvent: "ShiftRight",
-    },
-    {
-        rus: "Ctrl",
-        rusCaps: "Ctrl",
-        rusShift: "Ctrl",
-        eng: "Ctrl",
-        engCaps: "Ctrl",
-        engShift: "Ctrl",
-        style: "key-special",
-        action() {
-
-
-        },
-        keyEvent: "ControlLeft",
-    },
-    {
-        rus: "Win",
-        rusCaps: "Win",
-        rusShift: "Win",
-        eng: "Win",
-        engCaps: "Win",
-        engShift: "Win",
-        style: "key-special",
-        action() {
-
-
-        },
-        keyEvent: "MetaLeft",
-    },
-    {
-        rus: "Alt",
-        rusCaps: "Alt",
-        rusShift: "Alt",
-        eng: "Alt",
-        engCaps: "Alt",
-        engShift: "Alt",
-        style: "key-special",
-        action() {
-
-
-        },
-        keyEvent: "AltLeft",
-    },
-    {
-        rus: " ",
-        rusCaps: " ",
-        rusShift: " ",
-        eng: " ",
-        engCaps: " ",
-        engShift: " ",
-        style: "key-default-space",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "Space",
-    },
-    {
-        rus: "Alt",
-        rusCaps: "Alt",
-        rusShift: "Alt",
-        eng: "Alt",
-        engCaps: "Alt",
-        engShift: "Alt",
-        style: "key-special",
-        action() {
-
-
-        },
-        keyEvent: "AltRight",
-    },
-    {
-        rus: "←",
-        rusCaps: "←",
-        rusShift: "←",
-        eng: "←",
-        engCaps: "←",
-        engShift: "←",
-        style: "key-special",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "ArrowLeft",
-    },
-    {
-        rus: "↓",
-        rusCaps: "↓",
-        rusShift: "↓",
-        eng: "↓",
-        engCaps: "↓",
-        engShift: "↓",
-        style: "key-special",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "ArrowDown",
-    },
-    {
-        rus: "→",
-        rusCaps: "→",
-        rusShift: "→",
-        eng: "→",
-        engCaps: "→",
-        engShift: "→",
-        style: "key-special",
-        action() {
-            textareaElement.textContent = textareaElement.textContent + this[currentLangState];
-
-        },
-        keyEvent: "ArrowRight",
-    },
-    {
-        rus: "Ctrl",
-        rusCaps: "Ctrl",
-        rusShift: "Ctrl",
-        eng: "Ctrl",
-        engCaps: "Ctrl",
-        engShift: "Ctrl",
-        style: "key-special",
-        action() {
-
-
-        },
-        keyEvent: "ControlRight",
-    }
+import Key from "./key.js";
+
+const keyData = [
+    new Key({ ru: "ё", ruCaps: "Ё", ruShift: "Ё", en: "`", enCaps: "`", enShift: "~" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Backquote"),
+    new Key({ ru: "1", ruCaps: "1", ruShift: "!", en: "1", enCaps: "1", enShift: "!" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit1"),
+    new Key({ ru: "2", ruCaps: "2", ruShift: '"', en: "2", enCaps: "2", enShift: "@" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit2"),
+    new Key({ ru: "3", ruCaps: "3", ruShift: "№", en: "3", enCaps: "3", enShift: "#" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit3"),
+    new Key({ ru: "4", ruCaps: "4", ruShift: ";", en: "4", enCaps: "4", enShift: "$" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit4"),
+    new Key({ ru: "5", ruCaps: "5", ruShift: "%", en: "5", enCaps: "5", enShift: "%" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit5"),
+    new Key({ ru: "6", ruCaps: "6", ruShift: ":", en: "6", enCaps: "6", enShift: "^" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit6"),
+    new Key({ ru: "7", ruCaps: "7", ruShift: "?", en: "7", enCaps: "7", enShift: "&" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit7"),
+    new Key({ ru: "8", ruCaps: "8", ruShift: "*", en: "8", enCaps: "8", enShift: "*" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit8"),
+    new Key({ ru: "9", ruCaps: "9", ruShift: "(", en: "9", enCaps: "9", enShift: "(" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit9"),
+    new Key({ ru: "0", ruCaps: "0", ruShift: ")", en: "0", enCaps: "0", enShift: ")" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Digit0"),
+    new Key({ ru: "-", ruCaps: "-", ruShift: "_", en: "-", enCaps: "-", enShift: "_" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Minus"),
+    new Key({ ru: "=", ruCaps: "=", ruShift: "+", en: "=", enCaps: "=", enShift: "+" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Equal"),
+    new Key({ ru: "Backspace", ruCaps: "Backspace", ruShift: "Backspace", en: "Backspace", enCaps: "Backspace", enShift: "Backspace" }, "key-special-backspace", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Backspace"),
+    new Key({ ru: "Tab", ruCaps: "Tab", ruShift: "Tab", en: "Tab", enCaps: "Tab", enShift: "Tab" }, "key-special-tab", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Tab"),
+    new Key({ ru: "й", ruCaps: "Й", ruShift: "Й", en: "q", enCaps: "Q", enShift: "Q" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyQ"),
+    new Key({ ru: "ц", ruCaps: "Ц", ruShift: "Ц", en: "w", enCaps: "W", enShift: "W" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyW"),
+    new Key({ ru: "у", ruCaps: "У", ruShift: "У", en: "e", enCaps: "E", enShift: "E" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyE"),
+    new Key({ ru: "к", ruCaps: "К", ruShift: "К", en: "r", enCaps: "R", enShift: "R" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyR"),
+    new Key({ ru: "е", ruCaps: "Е", ruShift: "Е", en: "t", enCaps: "T", enShift: "T" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyT"),
+    new Key({ ru: "н", ruCaps: "Н", ruShift: "Н", en: "y", enCaps: "Y", enShift: "Y" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyY"),
+    new Key({ ru: "г", ruCaps: "Г", ruShift: "Г", en: "u", enCaps: "U", enShift: "U" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyU"),
+    new Key({ ru: "ш", ruCaps: "Ш", ruShift: "Ш", en: "i", enCaps: "I", enShift: "I" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyI"),
+    new Key({ ru: "щ", ruCaps: "Щ", ruShift: "Щ", en: "o", enCaps: "O", enShift: "O" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyO"),
+    new Key({ ru: "з", ruCaps: "З", ruShift: "З", en: "p", enCaps: "P", enShift: "P" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyP"),
+    new Key({ ru: "х", ruCaps: "Х", ruShift: "Х", en: "[", enCaps: "[", enShift: "{" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "BracketLeft"),
+    new Key({ ru: "ъ", ruCaps: "Ъ", ruShift: "Ъ", en: "]", enCaps: "]", enShift: "}" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "BracketRight"),
+    new Key({ ru: "\\", ruCaps: "\\", ruShift: "/", en: "\\", enCaps: "\\", enShift: "|" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Backslash"),
+    new Key({ ru: "Del", ruCaps: "Del", ruShift: "Del", en: "Del", enCaps: "Del", enShift: "Del" }, "key-special-del", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Delete"),
+    new Key({ ru: "CapsLock", ruCaps: "CapsLock", ruShift: "CapsLock", en: "CapsLock", enCaps: "CapsLock", enShift: "CapsLock" }, "key-special-caps", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "CapsLock"),
+    new Key({ ru: "ф", ruCaps: "Ф", ruShift: "Ф", en: "a", enCaps: "A", enShift: "A" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyA"),
+    new Key({ ru: "ы", ruCaps: "Ы", ruShift: "Ы", en: "s", enCaps: "S", enShift: "S" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyS"),
+    new Key({ ru: "в", ruCaps: "В", ruShift: "В", en: "d", enCaps: "D", enShift: "D" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyD"),
+    new Key({ ru: "а", ruCaps: "А", ruShift: "А", en: "f", enCaps: "F", enShift: "F" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyF"),
+    new Key({ ru: "п", ruCaps: "П", ruShift: "П", en: "g", enCaps: "G", enShift: "G" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyG"),
+    new Key({ ru: "р", ruCaps: "Р", ruShift: "Р", en: "h", enCaps: "H", enShift: "H" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyH"),
+    new Key({ ru: "о", ruCaps: "О", ruShift: "О", en: "j", enCaps: "J", enShift: "J" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyJ"),
+    new Key({ ru: "л", ruCaps: "Л", ruShift: "Л", en: "k", enCaps: "K", enShift: "K" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyK"),
+    new Key({ ru: "д", ruCaps: "Д", ruShift: "Д", en: "l", enCaps: "L", enShift: "L" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyL"),
+    new Key({ ru: "ж", ruCaps: "Ж", ruShift: "Ж", en: ";", enCaps: ";", enShift: ":" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Semicolon"),
+    new Key({ ru: "э", ruCaps: "Э", ruShift: "Э", en: "'", enCaps: "'", enShift: '"' }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Quote"),
+    new Key({ ru: "Enter", ruCaps: "Enter", ruShift: "Enter", en: "Enter", enCaps: "Enter", enShift: "Enter" }, "key-special-enter", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Enter"),
+    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, "key-special-lshift", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ShiftLeft"),
+    new Key({ ru: "я", ruCaps: "Я", ruShift: "Я", en: "z", enCaps: "Z", enShift: "Z" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyZ"),
+    new Key({ ru: "ч", ruCaps: "Ч", ruShift: "Ч", en: "x", enCaps: "X", enShift: "X" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyX"),
+    new Key({ ru: "с", ruCaps: "С", ruShift: "С", en: "c", enCaps: "C", enShift: "C" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyC"),
+    new Key({ ru: "м", ruCaps: "м", ruShift: "м", en: "v", enCaps: "V", enShift: "V" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyV"),
+    new Key({ ru: "и", ruCaps: "И", ruShift: "И", en: "b", enCaps: "B", enShift: "B" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyB"),
+    new Key({ ru: "т", ruCaps: "Т", ruShift: "Т", en: "n", enCaps: "N", enShift: "N" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyN"),
+    new Key({ ru: "ь", ruCaps: "Ь", ruShift: "Ь", en: "m", enCaps: "M", enShift: "M" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "KeyM"),
+    new Key({ ru: "б", ruCaps: "Б", ruShift: "Б", en: ",", enCaps: ",", enShift: "<" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Comma"),
+    new Key({ ru: "ю", ruCaps: "Ю", ruShift: "Ю", en: ".", enCaps: ".", enShift: ">" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Period"),
+    new Key({ ru: ".", ruCaps: ".", ruShift: ",", en: "/", enCaps: "/", enShift: "?" }, "key-default", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Slash"),
+    new Key({ ru: "↑", ruCaps: "↑", ruShift: "↑", en: "↑", enCaps: "↑", enShift: "↑" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ArrowUp"),
+    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, "key-special-rshift", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ShiftRight"),
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ControlLeft"),
+    new Key({ ru: "Win", ruCaps: "Win", ruShift: "Win", en: "Win", enCaps: "Win", enShift: "Win" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "MetaLeft"),
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "AltLeft"),
+    new Key({ ru: " ", ruCaps: " ", ruShift: " ", en: " ", enCaps: " ", enShift: " " }, "key-default-space", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "Space"),
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "AltRight"),
+    new Key({ ru: "←", ruCaps: "←", ruShift: "←", en: "←", enCaps: "←", enShift: "←" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ArrowLeft"),
+    new Key({ ru: "↓", ruCaps: "↓", ruShift: "↓", en: "↓", enCaps: "↓", enShift: "↓" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ArrowDown"),
+    new Key({ ru: "→", ruCaps: "→", ruShift: "→", en: "→", enCaps: "→", enShift: "→" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ArrowRight"),
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, "key-special", (symbol) => {
+        textareaElement.textContent = textareaElement.textContent + symbol;
+    }, "ControlRight")
 ]
+
+
 
 
 
@@ -968,10 +267,10 @@ textareaElement.setAttribute("placeholder", "Write someting here...");
 
 // -- main keyboard
 for (let i = 0; i < keyData.length; i++) {
-    addKey(keyData[i].style);
+    renderKey(keyData[i].style);
 }
 
-function addKey(style) { // add key according to key style
+function renderKey(style) { // add key according to key style
     if (style == "key-default") {
         keyboardWrapper.appendChild(keyDefault.cloneNode(true));
     } else if (style == "key-special") {
@@ -990,27 +289,57 @@ function addKey(style) { // add key according to key style
         keyboardWrapper.appendChild(keySpecialEnter.cloneNode(true));
     } else if (style == "key-special-lshift") {
         keyboardWrapper.appendChild(keySpecialLShift.cloneNode(true));
-    } else {
+    } else if (style == "key-special-rshift") {
         keyboardWrapper.appendChild(keySpecialRShift.cloneNode(true));
     };
 }
 
+function setDefaultLocalStorage(param) {
+    if (!localStorage.getItem("keyboard-lang")) {
+        localStorage.setItem("keyboard-lang", param);
+    }
+}
+setDefaultLocalStorage("ru");
+
+function updateLocalStorage() {
+    if (localStorage.getItem("keyboard-lang") === "ru") {
+        localStorage.setItem("keyboard-lang", "en");
+    } else {
+        localStorage.setItem("keyboard-lang", "ru");
+    }
+}
+
+const currentLang = function getLocalStorage() {
+    return localStorage.getItem("keyboard-lang");
+}
+
 function addKeyValue() {
     const allKeys = document.querySelectorAll(".key-default");
+
     for (let i = 0; i < allKeys.length; i++) {
+
         const element = keyData[i];
-        allKeys[i].textContent = element.rus;
-        allKeys[i].onclick = function () {
-            keyData[i].action();
-        }
+        const symbol = element.symbol[currentLang()];
+
+        allKeys[i].textContent = symbol;
+
+        // allKeys[i].onclick = element.actionProvider(symbol);
+        allKeys[i].addEventListener("click", () => {
+            element.actionProvider(symbol);
+        })
+
+
+
         window.addEventListener("keydown", (e) => {
-            if (e.code === keyData[i].keyEvent) {
-                keyData[i].action();
+            e.preventDefault();
+            if (e.code === element.keyEvent) {
+                element.actionProvider(symbol);
                 allKeys[i].classList.toggle("key-active") // add style to key while press it
             }
         })
         window.addEventListener("keyup", (e) => {
-            if (e.code === keyData[i].keyEvent) {
+            e.preventDefault();
+            if (e.code === element.keyEvent) {
                 allKeys[i].classList.toggle("key-active") // delete style to key while press it
 
             }
@@ -1024,7 +353,7 @@ addKeyValue();
 //
 
 // -- footer
-footerParagraph.innerHTML = "OS: Windows<br>Eng/Rus:  left ctrl + left alt";
+footerParagraph.innerHTML = "OS: Windows<br>Eng/ru:  left ctrl + left alt";
 //
 
 
