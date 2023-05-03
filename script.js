@@ -40,10 +40,10 @@ const keyData = [
     new Key({ ru: "=", ruCaps: "=", ruShift: "+", en: "=", enCaps: "=", enShift: "+" }, [], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "Equal", { ru: false, en: false }),
-    new Key({ ru: "Backspace", ruCaps: "Backspace", ruShift: "Backspace", en: "Backspace", enCaps: "Backspace", enShift: "Backspace" }, ["key-special", "key-special-backspace"], (symbol) => {
+    new Key({ ru: "Backspace", ruCaps: "Backspace", ruShift: "Backspace", en: "Backspace", enCaps: "Backspace", enShift: "Backspace" }, ["key-special", "key-special-backspace"], () => {
         return () => textareaElement.textContent = textareaElement.textContent.substring(0, textareaElement.textContent.length - 1);
     }, "Backspace", { ru: false, en: false }),
-    new Key({ ru: "Tab", ruCaps: "Tab", ruShift: "Tab", en: "Tab", enCaps: "Tab", enShift: "Tab" }, ["key-special", "key-special-tab"], (symbol) => {
+    new Key({ ru: "Tab", ruCaps: "Tab", ruShift: "Tab", en: "Tab", enCaps: "Tab", enShift: "Tab" }, ["key-special", "key-special-tab"], () => {
         return () => textareaElement.textContent += "\t";
     }, "Tab", { ru: false, en: false }),
     new Key({ ru: "й", ruCaps: "Й", ruShift: "Й", en: "q", enCaps: "Q", enShift: "Q" }, [], (symbol) => {
@@ -85,10 +85,10 @@ const keyData = [
     new Key({ ru: "\\", ruCaps: "\\", ruShift: "/", en: "\\", enCaps: "\\", enShift: "|" }, [], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "Backslash", { ru: false, en: false }),
-    new Key({ ru: "Del", ruCaps: "Del", ruShift: "Del", en: "Del", enCaps: "Del", enShift: "Del" }, ["key-special", "key-special-del"], (symbol) => {
+    new Key({ ru: "Del", ruCaps: "Del", ruShift: "Del", en: "Del", enCaps: "Del", enShift: "Del" }, ["key-special", "key-special-del"], () => {
         return () => textareaElement.textContent += "";
     }, "Delete", { ru: false, en: false }),
-    new Key({ ru: "CapsLock", ruCaps: "CapsLock", ruShift: "CapsLock", en: "CapsLock", enCaps: "CapsLock", enShift: "CapsLock" }, ["key-special", "key-special-caps"], (symbol) => {
+    new Key({ ru: "CapsLock", ruCaps: "CapsLock", ruShift: "CapsLock", en: "CapsLock", enCaps: "CapsLock", enShift: "CapsLock" }, ["key-special", "key-special-caps"], () => {
         return () => textareaElement.textContent += "";
     }, "CapsLock", { ru: false, en: false }),
     new Key({ ru: "ф", ruCaps: "Ф", ruShift: "Ф", en: "a", enCaps: "A", enShift: "A" }, [], (symbol) => {
@@ -124,10 +124,10 @@ const keyData = [
     new Key({ ru: "э", ruCaps: "Э", ruShift: "Э", en: "'", enCaps: "'", enShift: '"' }, [], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "Quote", { ru: true, en: false }),
-    new Key({ ru: "Enter", ruCaps: "Enter", ruShift: "Enter", en: "Enter", enCaps: "Enter", enShift: "Enter" }, ["key-special", "key-special-enter"], (symbol) => {
+    new Key({ ru: "Enter", ruCaps: "Enter", ruShift: "Enter", en: "Enter", enCaps: "Enter", enShift: "Enter" }, ["key-special", "key-special-enter"], () => {
         return () => textareaElement.textContent += "\n";
     }, "Enter", { ru: false, en: false }),
-    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, ["key-special", "key-special-lshift"], (symbol) => {
+    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, ["key-special", "key-special-lshift"], () => {
         return () => textareaElement.textContent += "";
     }, "ShiftLeft", { ru: false, en: false }),
     new Key({ ru: "я", ruCaps: "Я", ruShift: "Я", en: "z", enCaps: "Z", enShift: "Z" }, [], (symbol) => {
@@ -163,22 +163,22 @@ const keyData = [
     new Key({ ru: "↑", ruCaps: "↑", ruShift: "↑", en: "↑", enCaps: "↑", enShift: "↑" }, ["key-special"], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "ArrowUp", { ru: false, en: false }),
-    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, ["key-special", "key-special-rshift"], (symbol) => {
+    new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, ["key-special", "key-special-rshift"], () => {
         return () => textareaElement.textContent += "";
     }, "ShiftRight", { ru: false, en: false }),
-    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], (symbol) => {
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "ControlLeft", { ru: false, en: false }),
-    new Key({ ru: "Win", ruCaps: "Win", ruShift: "Win", en: "Win", enCaps: "Win", enShift: "Win" }, ["key-special"], (symbol) => {
+    new Key({ ru: "Win", ruCaps: "Win", ruShift: "Win", en: "Win", enCaps: "Win", enShift: "Win" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "MetaLeft", { ru: false, en: false }),
-    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], (symbol) => {
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "AltLeft", { ru: false, en: false }),
     new Key({ ru: " ", ruCaps: " ", ruShift: " ", en: " ", enCaps: " ", enShift: " " }, ["key-default-space"], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "Space", { ru: false, en: false }),
-    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], (symbol) => {
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "AltRight", { ru: false, en: false }),
     new Key({ ru: "←", ruCaps: "←", ruShift: "←", en: "←", enCaps: "←", enShift: "←" }, ["key-special"], (symbol) => {
@@ -190,7 +190,7 @@ const keyData = [
     new Key({ ru: "→", ruCaps: "→", ruShift: "→", en: "→", enCaps: "→", enShift: "→" }, ["key-special"], (symbol) => {
         return () => textareaElement.textContent += symbol;
     }, "ArrowRight", { ru: false, en: false }),
-    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], (symbol) => {
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "ControlRight", { ru: false, en: false })
 ]
@@ -381,9 +381,7 @@ window.addEventListener("keydown", (e) => {
 
 // --change font case Shift
 window.addEventListener("keydown", (e) => {
-    // e.preventDefault();
     if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
-        //     let lang = currentLang() == "ru" ? "ruShift" : "enShift";
         shiftStatus = true;
         renderKey(currentLang(), shiftStatus);
     }
@@ -395,10 +393,6 @@ window.addEventListener("keyup", (e) => {
         renderKey(currentLang(), shiftStatus);
     }
 })
-
-const shiftLeftElement = document.querySelector(".key-special-lshift");
-const shiftRightElement = document.querySelector(".key-special-rshift");
-
 
 //
 
