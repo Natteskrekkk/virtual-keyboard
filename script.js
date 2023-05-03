@@ -139,7 +139,7 @@ const keyData = [
     new Key({ ru: "с", ruCaps: "С", ruShift: "С", en: "c", enCaps: "C", enShift: "C" }, [], (symbol) => {
         return () => insertAtCursor(textareaPlanted, symbol);
     }, "KeyC", { ru: true, en: true }),
-    new Key({ ru: "м", ruCaps: "м", ruShift: "м", en: "v", enCaps: "V", enShift: "V" }, [], (symbol) => {
+    new Key({ ru: "м", ruCaps: "М", ruShift: "М", en: "v", enCaps: "V", enShift: "V" }, [], (symbol) => {
         return () => insertAtCursor(textareaPlanted, symbol);
     }, "KeyV", { ru: true, en: true }),
     new Key({ ru: "и", ruCaps: "И", ruShift: "И", en: "b", enCaps: "B", enShift: "B" }, [], (symbol) => {
@@ -166,19 +166,19 @@ const keyData = [
     new Key({ ru: "Shift", ruCaps: "Shift", ruShift: "Shift", en: "Shift", enCaps: "Shift", enShift: "Shift" }, ["key-special", "key-special-rshift"], () => {
         return () => textareaElement.textContent += "";
     }, "ShiftRight", { ru: false, en: false }),
-    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], () => {
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special", "ctrl-left"], () => {
         return () => textareaElement.textContent += "";
     }, "ControlLeft", { ru: false, en: false }),
     new Key({ ru: "Win", ruCaps: "Win", ruShift: "Win", en: "Win", enCaps: "Win", enShift: "Win" }, ["key-special"], () => {
         return () => textareaElement.textContent += "";
     }, "MetaLeft", { ru: false, en: false }),
-    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], () => {
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special", "alt-left"], () => {
         return () => textareaElement.textContent += "";
     }, "AltLeft", { ru: false, en: false }),
     new Key({ ru: " ", ruCaps: " ", ruShift: " ", en: " ", enCaps: " ", enShift: " " }, ["key-default-space"], (symbol) => {
         return () => insertAtCursor(textareaPlanted, symbol);
     }, "Space", { ru: false, en: false }),
-    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special"], () => {
+    new Key({ ru: "Alt", ruCaps: "Alt", ruShift: "Alt", en: "Alt", enCaps: "Alt", enShift: "Alt" }, ["key-special", "alt-right"], () => {
         return () => textareaElement.textContent += "";
     }, "AltRight", { ru: false, en: false }),
     new Key({ ru: "←", ruCaps: "←", ruShift: "←", en: "←", enCaps: "←", enShift: "←" }, ["key-special"], (symbol) => {
@@ -190,7 +190,7 @@ const keyData = [
     new Key({ ru: "→", ruCaps: "→", ruShift: "→", en: "→", enCaps: "→", enShift: "→" }, ["key-special"], (symbol) => {
         return () => insertAtCursor(textareaPlanted, symbol);
     }, "ArrowRight", { ru: false, en: false }),
-    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special"], () => {
+    new Key({ ru: "Ctrl", ruCaps: "Ctrl", ruShift: "Ctrl", en: "Ctrl", enCaps: "Ctrl", enShift: "Ctrl" }, ["key-special", "ctrl-right"], () => {
         return () => textareaElement.textContent += "";
     }, "ControlRight", { ru: false, en: false })
 ]
@@ -250,7 +250,7 @@ footerElement.appendChild(footerParagraph);
 //
 
 // -- header
-headerElement.textContent = "RSS Vitual Keyboard";
+headerElement.textContent = "RSS Virtual Keyboard";
 //
 
 // -- main textarea
@@ -340,23 +340,23 @@ function renderKey(lang, shift) {
     // --change font case Shift by CLICK
     const shiftLeftElement = document.querySelector(".key-special-lshift");
     const shiftRightElement = document.querySelector(".key-special-rshift");
-    shiftLeftElement.addEventListener("click", () => {
-        shiftStatus
-            ? shiftStatus = false
-            : shiftStatus = true;
+    shiftLeftElement.addEventListener("mousedown", () => {
+        shiftStatus = !shiftStatus;
+        renderKey(currentLang(), shiftStatus);
+    });
+    shiftLeftElement.addEventListener("mouseup", () => {
+        shiftStatus = !shiftStatus;
         renderKey(currentLang(), shiftStatus);
     });
 
-    shiftRightElement.addEventListener("click", () => {
-        shiftStatus
-            ? shiftStatus = false
-            : shiftStatus = true;
+    shiftRightElement.addEventListener("mousedown", () => {
+        shiftStatus = !shiftStatus;
         renderKey(currentLang(), shiftStatus);
     })
-
-
-
-
+    shiftRightElement.addEventListener("mouseup", () => {
+        shiftStatus = !shiftStatus;
+        renderKey(currentLang(), shiftStatus);
+    })
     //
 
 }
@@ -377,25 +377,73 @@ window.addEventListener("keydown", (e) => {
         renderKey(currentLang(), shiftStatus);
     }
 })
+
+window.addEventListener("keydown", (e) => {
+    if (e.code === "AltLeft" || e.code === "ControlLeft") {
+        if (e.ctrlKey && e.altKey) {
+            document.querySelector(".ctrl-left").classList.add("key-active") // add style to key while press it
+            document.querySelector(".alt-left").classList.add("key-active") // add style to key while press it
+        }
+    }
+})
+window.addEventListener("keyup", (e) => {
+    if (e.code === "AltLeft" || e.code === "ControlLeft") {
+        if (e.ctrlKey && e.altKey) {
+            document.querySelector(".ctrl-left").classList.remove("key-active") // add style to key while press it
+            document.querySelector(".alt-left").classList.remove("key-active") // add style to key while press it
+        }
+    }
+})
+window.addEventListener("keydown", (e) => {
+    if (e.code === "AltRight" || e.code === "ControlRight") {
+        if (e.ctrlKey && e.altKey) {
+            document.querySelector(".ctrl-right").classList.add("key-active") // add style to key while press it
+            document.querySelector(".alt-right").classList.add("key-active") // add style to key while press it
+        }
+    }
+})
+window.addEventListener("keyup", (e) => {
+    if (e.code === "AltRight" || e.code === "ControlRight") {
+        if (e.ctrlKey && e.altKey) {
+            document.querySelector(".ctrl-right").classList.remove("key-active") // add style to key while press it
+            document.querySelector(".alt-right").classList.remove("key-active") // add style to key while press it
+        }
+    }
+})
 //
 
 // --change font case Shift
 window.addEventListener("keydown", (e) => {
-    if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
+    if (e.code === "ShiftLeft") {
         shiftStatus = true;
         renderKey(currentLang(), shiftStatus);
+        document.querySelector(".key-special-lshift").classList.add("key-active") // add style to key while press it
+
     }
 })
-
 window.addEventListener("keyup", (e) => {
-    if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
+    if (e.code === "ShiftLeft") {
         shiftStatus = false;
         renderKey(currentLang(), shiftStatus);
+        document.querySelector(".key-special-lshift").classList.remove("key-active") // delete style to key while press it
     }
 })
+window.addEventListener("keydown", (e) => {
+    if (e.code === "ShiftRight") {
+        shiftStatus = true;
+        renderKey(currentLang(), shiftStatus);
+        document.querySelector(".key-special-rshift").classList.add("key-active") // add style to key while press it
 
+    }
+})
+window.addEventListener("keyup", (e) => {
+    if (e.code === "ShiftRight") {
+        shiftStatus = false;
+        renderKey(currentLang(), shiftStatus);
+        document.querySelector(".key-special-rshift").classList.remove("key-active") // delete style to key while press it
+    }
+})
 //
-
 // --change font case CapsLock
 window.addEventListener("keydown", (e) => {
     e.preventDefault();
@@ -404,17 +452,20 @@ window.addEventListener("keydown", (e) => {
             ? capsStatus = false
             : capsStatus = true;
         renderKey(currentLang(), shiftStatus);
+        document.querySelector(".key-special-caps").classList.add("key-active") // add style to key while press it
     }
 })
+window.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    if (e.code === "CapsLock") {
+        document.querySelector(".key-special-caps").classList.remove("key-active") // delete style to key while press it
+    }
+})
+
 //
 
 
 const textareaPlanted = document.querySelector(".textarea-element");
-
-const typeInTextarea = (newText, el) => {
-    const [start, end] = [el.selectionStart, el.selectionEnd];
-    el.setRangeText(newText, start, end, 'select');
-}
 
 function insertAtCursor(input, textToInsert) {
     // get current text of the input
