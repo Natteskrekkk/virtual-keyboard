@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-element {
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 20px;
+    background-color: rgb(154, 242, 253);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-element {
+    width: 100%;
+    height: auto;
+}
+
+/* Header style */
+.header-element {
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #004cf1;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.textarea-element {
+    width: calc(100% - 46px);
+    height: 10vh;
+    border-radius: 5px;
+    border: 3px solid #004cf1;
+    font-size: 20px;
+    padding: 20px;
+}
+
+
+
+
+/* Keybord wrapper style */
+.keyboard-wrapper {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #2997ff;
+    border-radius: 5px;
+    border: 3px solid #004cf1;
+    gap: 6px;
+    padding: 7px;
+}
+
+
+/* Keybord default key style */
+.key-default {
+    width: 40px;
+    height: 40px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background: #0547ff;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+.key-default:hover {
+    background-color: rgb(3, 221, 192);
+    cursor: pointer;
+}
+
+.key-default:active {
+    background-color: rgb(29, 185, 165);
+    cursor: pointer;
+}
+
+.key-default-space {
+    width: 330px;
+}
+
+
+/* Keybord special key style */
+.key-special {
+    font-weight: 600;
+    background: #222;
+}
+
+.key-special-backspace {
+    width: 100px;
+}
+
+.key-special-tab {
+    width: 50px;
+}
+
+.key-special-del {
+    width: 44px;
+}
+
+.key-special-caps {
+    width: 100px;
+}
+
+.key-special-enter {
+    width: 86px;
+}
+
+.key-special-lshift {
+    width: 100px;
+}
+
+.key-special-rshift {
+    width: 86px;
+}
+
+.key-active {
+    background-color: rgb(29, 185, 165);
+}
