@@ -345,6 +345,13 @@ function renderKey(lang, shift) {
             ? shiftStatus = false
             : shiftStatus = true;
         renderKey(currentLang(), shiftStatus);
+    });
+
+    shiftRightElement.addEventListener("click", () => {
+        shiftStatus
+            ? shiftStatus = false
+            : shiftStatus = true;
+        renderKey(currentLang(), shiftStatus);
     })
 
 
